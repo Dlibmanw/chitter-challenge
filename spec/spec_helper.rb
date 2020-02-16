@@ -1,4 +1,10 @@
+require_relative 'set_up_test_database'
 ENV['ENVIRONMENT'] = 'test'
+RSpec.configure do |config|
+  config.before(:each) do
+    set_up_test_database 
+  end
+end
 
 require 'simplecov'
 require 'simplecov-console'
